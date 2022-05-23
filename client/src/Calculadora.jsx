@@ -51,6 +51,11 @@ const Calculadora = () => {
 		}
 	}
 
+	const openInNewTab = (url) => {
+		const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
+		if (newWindow) newWindow.opener = null
+	}
+
 	return (
 		<div className="calculadora_container">
 
@@ -78,7 +83,9 @@ const Calculadora = () => {
 
 				<div className="fila">
 
-					<div className="boton parte_verde"><AiFillGithub /></div>
+					<div
+						onClick={() => openInNewTab('https://github.com/her20053/2022-Web-Lab-8-Calculadora')}
+						className="boton parte_verde"><AiFillGithub /></div>
 					<div onClick={() => {
 						setCalc(prev => "")
 						setResult("")
